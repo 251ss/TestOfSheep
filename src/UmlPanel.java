@@ -17,9 +17,6 @@ import java.util.Random;
 
 /**
  * 游戏主程序
- * @author miukoo
- * @see  <a href="https://gitee.com/miukoo/yang-liao-ge-yangy.git">project home</a>
- * @see  <a href="http://gjsm.cn/">athor website</a>
  */
 public class UmlPanel extends JPanel {
     ImageCantainer imageCantainer = new ImageCantainer();

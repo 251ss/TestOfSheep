@@ -7,9 +7,6 @@ import java.awt.*;
 
 /**
  * 卡片对象
- * @author miukoo
- * @see  <a href="https://gitee.com/miukoo/yang-liao-ge-yangy.git">project home</a>
- * @see  <a href="http://gjsm.cn/">athor website</a>
  */
 public class Fruits extends ShapeDrager {
 

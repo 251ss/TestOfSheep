@@ -8,9 +8,6 @@ import java.util.Map;
 
 /**
  * 记录每层卡片的空间信息，用于实现上下层是否可点击的动态刷新
- * @author miukoo
- * @see  <a href="https://gitee.com/miukoo/yang-liao-ge-yangy.git">project home</a>
- * @see  <a href="http://gjsm.cn/">athor website</a>
  */
 public class SpaceManager {
     // Map<X坐标点, Set<层数,HashMap<Y坐标点Integer,FruitObject>>>

@@ -16,9 +16,6 @@ import java.util.stream.Collectors;
 
 /**
  * 验卡区
- * @author miukoo
- * @see  <a href="https://gitee.com/miukoo/yang-liao-ge-yangy.git">project home</a>
- * @see  <a href="http://gjsm.cn/">athor website</a>
  */
 public class CardSlotCantainer extends JPanel {
 

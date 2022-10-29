@@ -12,9 +12,6 @@ import java.util.Random;
 
 /**
  * 卡片对象放置位置对象：记录卡片放在那个位置
- * @author miukoo
- * @see  <a href="https://gitee.com/miukoo/yang-liao-ge-yangy.git">project home</a>
- * @see  <a href="http://gjsm.cn/">athor website</a>
  */
 public class FruitObject  {
 
