@@ -1,0 +1,132 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>cn.gjsm</groupId>
+    <artifactId>yang-liao-ge-yang</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
+
+    <name>yang-yang</name>
+    <url>http://maven.apache.org</url>
+
+    <properties>
+        <maven.compiler.encoding>UTF-8</maven.compiler.encoding>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.reflections</groupId>
+            <artifactId>reflections</artifactId>
+            <version>0.10.2</version>
+        </dependency>
+        <dependency>
+            <groupId>org.jsoup</groupId>
+            <artifactId>jsoup</artifactId>
+            <version>1.14.3</version>
+        </dependency>
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-all</artifactId>
+            <version>4.6.1</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <finalName>${project.artifactId}-${project.version}</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <mainClass>com.madou.uml.UmlPanel</mainClass>
+                        </manifest>
+                    </archive>
+                </configuration>
+            </plugin>
+            <plugin>
+                <artifactId>maven-resources-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>copy-resource-windows</id>
+                        <phase>prepare-package</phase>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+                        <configuration>
+                            <overwrite>true</overwrite>
+                            <outputDirectory>${basedir}/target/${project.artifactId}</outputDirectory>
+                            <resources>
+                                <resource>
+                                    <directory>${basedir}/static</directory>
+                                    <targetPath>/static</targetPath>
+                                </resource>
+                                <resource>
+                                    <directory>C:/Java/jdk1.8.0_281/jre</directory>
+                                    <targetPath>/jre</targetPath>
+                                </resource>
+                            </resources>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>com.akathist.maven.plugins.launch4j</groupId>
+                <artifactId>launch4j-maven-plugin</artifactId>
+                <version>2.1.2</version>
+                <executions>
+                    <!-- GUI exe -->
+                    <execution>
+                        <id>l4j-gui</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>launch4j</goal>
+                        </goals>
+                        <configuration>
+                            <headerType>gui</headerType>
+                            <outfile>${basedir}/target/${project.artifactId}/${project.artifactId}.exe</outfile>
+                            <jar>${basedir}/target/${project.artifactId}-${project.version}.jar</jar>
+                            <errTitle>App Err</errTitle>
+                            <downloadUrl>http://boom.gjsm.cn/doc/index.html</downloadUrl>
+                            <supportUrl>http://boom.gjsm.cn/doc/index.html</supportUrl>
+                            <classPath>
+                                <mainClass>com.madou.uml.UmlPanel</mainClass>
+                            </classPath>
+                            <stayAlive>true</stayAlive>
+                            <singleInstance>
+                                <mutexName>MadouJava4Yang</mutexName>
+                                <windowTitle>Madou Java For Yang</windowTitle>
+                            </singleInstance>
+                            <jre>
+                                <path>jre</path>
+                                <runtimeBits>64/32</runtimeBits>
+                                <initialHeapSize>128</initialHeapSize>
+                                <maxHeapSize>2048</maxHeapSize>
+                                <opts>-Dfile.encoding=UTF8</opts>
+                            </jre>
+                            <versionInfo>
+                                <fileVersion>1.0.0.0</fileVersion>
+                                <txtFileVersion>1.0.0.0</txtFileVersion>
+                                <fileDescription>Madou</fileDescription>
+                                <copyright>Madou</copyright>
+                                <productVersion>1.0.0.0</productVersion>
+                                <txtProductVersion>1.0.0.0</txtProductVersion>
+                                <productName>MadouJava4Yang</productName>
+                                <internalName>MadouJava4Yang</internalName>
+                                <originalFilename>MadouJava4Yang.exe</originalFilename>
+                                <language>SIMPLIFIED_CHINESE</language>
+                            </versionInfo>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
